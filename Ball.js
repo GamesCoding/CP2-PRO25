@@ -10,17 +10,21 @@ class Ball {
         this.r=r;
         this.x=x;
         this.y=y;
-        this.body=Bodies.circle(this.x,this.y,this.r/2,options)
+        this.image = loadImage("images/paper.png");
+        this.body=Bodies.circle(this.x,this.y,this.r/2,options);
 
         World.add(world,this.body);
     }
     display(){
         var pos = this.body.position;
+        var angle = this.body.angle;
         push();
         translate(pos.x,pos.y);
-        rectMode(CENTER);
-        fill("blue");
-        circle(0,0,this.r,this.r);
+        //rotate(angle);
+        //rectMode(RADIUS);
+        //fill("blue");
+        imageMode(CENTER);
+        image(this.image,0,0,this.r,this.r);
         pop();
     }
 }

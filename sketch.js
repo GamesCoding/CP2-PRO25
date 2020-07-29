@@ -7,11 +7,12 @@ const Body = Matter.Body;
 
 function preload()
 {
-	
+
+	//dustbinImage = loadImage("dustbingreen.png");
 }
 
 function setup() {
-	createCanvas(1800, 700);
+	createCanvas(1200,700);
 
 	engine = Engine.create();
 	world = engine.world;
@@ -20,7 +21,8 @@ function setup() {
 
 	ball = new Ball(290,50,50);
 	ground = new Ground(900,684,1800,50);
-	dustbin1 = new dustbin(1200,650,200);
+	dustbin = new Dustbin(600,650);
+	//dustbin.addImage("dustbin",dustbinImage);
 
 	Engine.run(engine);
 }
@@ -28,13 +30,13 @@ function setup() {
 
 function draw() {
   rectMode(CENTER);
-  background(0);
+  background(230);
 
   Engine.update(engine);
 
   ball.display();
   ground.display();
-  dustbin1.display();
+  dustbin.display();
 
   keyPressed();
   
